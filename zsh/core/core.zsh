@@ -20,6 +20,17 @@ export PATH
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
+# K9s
+export K9S_CONFIG_DIR="$HOME/.config/k9s"
+
+zcreset() {
+	rm -f \
+		"$ZSH_COMPLETIONS_DIR"/_{docker,k9s,kubectl,oc,podman} \
+		"$HOME/.cache/zsh/.zcompdump" \
+		"$HOME/.zcompdump"
+	source "$HOME/.zshrc"
+}
+
 # Homebrew shell integrations
 if command -v brew >/dev/null 2>&1; then
 	eval "$(brew shellenv)"

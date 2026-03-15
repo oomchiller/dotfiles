@@ -6,6 +6,7 @@ Core stack:
 - `tmux` — multiplexer
 - `nvim` — editor
 - `zsh` — shell
+- `k9s` — interactive Kubernetes UI
 
 ## Dependencies
 
@@ -41,6 +42,13 @@ ln -s ~/.config/dotfiles/nvim ~/.config/nvim
 ln -s ~/.config/dotfiles/ghostty ~/.config/ghostty
 ```
 
+### K9s
+
+```sh
+mkdir -p ~/.config
+ln -s ~/.config/dotfiles/k9s ~/.config/k9s
+```
+
 ## Minimum dependencies
 
 - `zsh >= 5.9`
@@ -52,5 +60,6 @@ ln -s ~/.config/dotfiles/ghostty ~/.config/ghostty
 - `ripgrep`
 - `fd`
 - `tree-sitter`
+- `k9s`
 
 Component-specific extras are documented in each component README.

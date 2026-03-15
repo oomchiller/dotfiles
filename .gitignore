@@ -1,3 +1,7 @@
 .DS_Store
 nvim/.nvimlog
+k9s/benchmarks/
+k9s/clusters/
+k9s/screen-dumps/
+k9s/k9s.log
 *.log

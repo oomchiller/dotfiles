@@ -23,10 +23,10 @@ ensure_completion_copy() {
 }
 
 ensure_completion_file "$ZSH_COMPLETIONS_DIR/_docker" docker docker completion zsh
+ensure_completion_file "$ZSH_COMPLETIONS_DIR/_k9s" k9s k9s completion zsh
 ensure_completion_file "$ZSH_COMPLETIONS_DIR/_kubectl" kubectl kubectl completion zsh
 ensure_completion_file "$ZSH_COMPLETIONS_DIR/_podman" podman podman completion zsh
 ensure_completion_file "$ZSH_COMPLETIONS_DIR/_oc" oc oc completion zsh
-ensure_completion_file "$ZSH_COMPLETIONS_DIR/_stern" stern stern --completion zsh
 
 if command -v brew >/dev/null 2>&1; then
 	BREW_COMPLETION_SRC="$(brew --prefix 2>/dev/null)/share/zsh/site-functions/_brew"

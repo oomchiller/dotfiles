@@ -19,12 +19,8 @@ brew "zsh-syntax-highlighting"
 # Container and Kubernetes tooling used by zsh helpers/completions
 brew "docker"
 brew "podman"
+brew "k9s"
 brew "kubectl"
-brew "kubecolor"
-brew "stern"
-brew "jq"
-brew "yq"
-brew "bat"
 brew "openshift-cli"
 
 # Terminal app and font used by this setup

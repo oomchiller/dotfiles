@@ -1,3 +1,4 @@
+alias k="kubectl"
 alias kg="k get"
 alias kd="k describe"
 alias ka="k apply -f"
@@ -20,8 +21,10 @@ alias kgcm="kg cm"
 alias kgsec="kg secret"
 alias kgj="kg -o json"
 alias kgy="kg -o yaml"
+alias k9="k9s"
 
 # openshift-cli specific
+alias o="oc"
 alias op="o project"
 alias ops="o projects"
 alias oroute="o get routes"
