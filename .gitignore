@@ -1,0 +1,18 @@
+.DS_Store
+*.log
+*.swp
+*.swo
+*.tmp
+.tmux-tmp/
+
+# Zed local state
+zed/.config/zed/prompts/
+
+# k9s local state and cluster-specific history
+k9s/.config/k9s/benchmarks/
+k9s/.config/k9s/clusters/
+k9s/.config/k9s/screen-dumps/
+k9s/.config/k9s/k9s.log
+
+# Karabiner local backups
+karabiner/.config/karabiner/automatic_backups/

@@ -1,0 +1,4 @@
+* text=auto eol=lf
+
+.DS_Store binary
+nvim/lazy-lock.json linguist-generated=true

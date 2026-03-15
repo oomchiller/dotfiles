@@ -1,0 +1,152 @@
+# -----------------------------------------------------------------------------
+# GitHub Default Dark skin
+# -----------------------------------------------------------------------------
+
+foreground: &foreground "#e6edf3"
+background: &background "default"
+backgroundOpaque: &backgroundOpaque "#161b22"
+backgroundSurface: &backgroundSurface "#0d1117"
+red: &red "#f85149"
+orange: &orange "#ffa657"
+yellow: &yellow "#d29922"
+green: &green "#3fb950"
+cyan: &cyan "#39c5cf"
+blue: &blue "#2f81f7"
+magenta: &magenta "#a371f7"
+violet: &violet "#d2a8ff"
+muted: &muted "#7d8590"
+bright: &bright "#ffffff"
+string: &string "#a5d6ff"
+tag: &tag "#7ee787"
+constant: &constant "#79c0ff"
+
+k9s:
+  body:
+    fgColor: *foreground
+    bgColor: *background
+    logoColor: *blue
+    logoColorMsg: *foreground
+    logoColorInfo: *blue
+    logoColorWarn: *orange
+    logoColorError: *red
+
+  prompt:
+    fgColor: *foreground
+    bgColor: *background
+    suggestColor: *muted
+
+  info:
+    fgColor: *blue
+    sectionColor: *yellow
+
+  help:
+    fgColor: *foreground
+    bgColor: *background
+    keyColor: *blue
+    numKeyColor: *blue
+    sectionColor: *blue
+
+  dialog:
+    fgColor: *foreground
+    bgColor: *background
+    buttonFgColor: *foreground
+    buttonBgColor: *background
+    buttonFocusFgColor: "#ffffff"
+    buttonFocusBgColor: *blue
+    labelFgColor: *yellow
+    fieldFgColor: *muted
+
+  frame:
+    border:
+      fgColor: *muted
+      focusColor: *blue
+
+    menu:
+      fgColor: *foreground
+      keyColor: *magenta
+      numKeyColor: *blue
+
+    crumbs:
+      fgColor: *foreground
+      bgColor: *backgroundOpaque
+      activeColor: *blue
+
+    status:
+      newColor: *blue
+      modifyColor: *yellow
+      addColor: *green
+      pendingColor: *orange
+      errorColor: *red
+      highlightColor: *blue
+      killColor: *magenta
+      completedColor: *muted
+
+    title:
+      fgColor: *blue
+      bgColor: *background
+      highlightColor: *yellow
+      counterColor: *green
+      filterColor: *magenta
+
+  views:
+    charts:
+      bgColor: *background
+      dialBgColor: *background
+      chartBgColor: *backgroundSurface
+      defaultDialColors:
+        - *blue
+        - *magenta
+      defaultChartColors:
+        - *blue
+        - *magenta
+      resourceColors:
+        batch/v1/jobs:
+          - *blue
+          - *magenta
+        v1/persistentvolumes:
+          - *blue
+          - *magenta
+        cpu:
+          - *blue
+          - *magenta
+        mem:
+          - *blue
+          - *magenta
+        v1/events:
+          - *blue
+          - *magenta
+        v1/pods:
+          - *blue
+          - *magenta
+
+    table:
+      fgColor: *foreground
+      bgColor: *background
+      cursorFgColor: "#ffffff"
+      cursorBgColor: *blue
+      markColor: *magenta
+      header:
+        fgColor: *bright
+        bgColor: *backgroundOpaque
+        sorterColor: *blue
+
+    xray:
+      fgColor: *foreground
+      bgColor: *background
+      cursorColor: *blue
+      cursorTextColor: "#ffffff"
+      graphicColor: *blue
+
+    yaml:
+      keyColor: *tag
+      colonColor: *muted
+      valueColor: *string
+
+    logs:
+      fgColor: *foreground
+      bgColor: *background
+      indicator:
+        fgColor: *foreground
+        bgColor: *backgroundOpaque
+        toggleOnColor: *green
+        toggleOffColor: *magenta
