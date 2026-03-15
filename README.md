@@ -7,6 +7,14 @@ Core stack:
 - `nvim` — editor
 - `zsh` — shell
 
+## Dependencies
+
+Install the documented Homebrew dependencies with:
+
+```sh
+brew bundle --file ~/.config/dotfiles/Brewfile
+```
+
 ## Installation
 
 ### zsh
