@@ -5,6 +5,7 @@ brew "neovim"
 brew "git"
 
 # Shared CLI dependencies
+brew "stow"
 brew "ripgrep"
 brew "fd"
 brew "tree-sitter"

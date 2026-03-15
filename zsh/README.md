@@ -3,7 +3,8 @@
 ## Installation
 
 ```sh
-ln -s ~/.config/dotfiles/zsh/zshrc ~/.zshrc
+cd ~/.config/dotfiles
+stow zsh
 ```
 
 Optional local overrides:

@@ -1,5 +1,12 @@
 # Neovim
 
+## Installation
+
+```sh
+cd ~/.config/dotfiles
+stow nvim
+```
+
 ## Clipboard
 
 `unnamedplus` is enabled, so normal yanks go to the system clipboard.

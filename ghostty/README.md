@@ -1,5 +1,12 @@
 # Ghostty
 
+## Installation
+
+```sh
+cd ~/.config/dotfiles
+stow ghostty
+```
+
 ## Requirements:
 
 - font: `JetBrainsMono Nerd Font Mono`

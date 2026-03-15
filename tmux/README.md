@@ -1,5 +1,12 @@
 # tmux
 
+## Installation
+
+```sh
+cd ~/.config/dotfiles
+stow tmux
+```
+
 ## Basics
 
 - prefix: `Ctrl+B`

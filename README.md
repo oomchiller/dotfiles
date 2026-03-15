@@ -16,38 +16,31 @@ Install the documented Homebrew dependencies with:
 brew bundle --file ~/.config/dotfiles/Brewfile
 ```
 
+`gnu-stow` is the deployment mechanism for this repository.
+
 ## Installation
 
-### zsh
-
-```sh
-ln -s ~/.config/dotfiles/zsh/zshrc ~/.zshrc
-```
-
-### tmux
-
-```sh
-ln -s ~/.config/dotfiles/tmux/tmux.conf ~/.tmux.conf
-```
-
-### Neovim
-
-```sh
-ln -s ~/.config/dotfiles/nvim ~/.config/nvim
-```
-
-### Ghostty
-
-```
-ln -s ~/.config/dotfiles/ghostty ~/.config/ghostty
-```
-
-### K9s
+Clone the repository into `~/.config/dotfiles`, then stow the packages you want:
 
 ```sh
 mkdir -p ~/.config
-ln -s ~/.config/dotfiles/k9s ~/.config/k9s
+cd ~/.config/dotfiles
+stow zsh tmux nvim ghostty k9s
 ```
+
+If you are migrating from the old manual symlink setup, remove the existing links first:
+
+```sh
+for path in ~/.zshrc ~/.tmux.conf ~/.config/nvim ~/.config/ghostty ~/.config/k9s; do
+  [ -L "$path" ] && rm "$path"
+done
+```
+
+Useful stow commands:
+
+- `stow -nv zsh` — dry-run a package
+- `stow -D zsh` — remove a package's symlinks
+- `stow -R zsh` — restow after changes
 
 ## Minimum dependencies
 
@@ -57,6 +50,7 @@ ln -s ~/.config/dotfiles/k9s ~/.config/k9s
 - `ghostty` — recent stable release
 - `JetBrainsMono Nerd Font Mono`
 - `Homebrew`
+- `gnu-stow`
 - `ripgrep`
 - `fd`
 - `tree-sitter`

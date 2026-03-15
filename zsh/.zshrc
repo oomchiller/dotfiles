@@ -1,15 +1,14 @@
 export EDITOR=v
 export DEFAULT_USER="$(whoami)"
 
-export DOTFILES_HOME=$HOME/.config/dotfiles
-export DOTFILES_ZSH_HOME=$HOME/.config/dotfiles/zsh
+export ZSH_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export ZSH_COMPLETIONS_DIR="$HOME/.zsh/completions"
 export ZSH_COMPDUMP_DIR="$HOME/.cache/zsh"
 export ZSH_COMPDUMP_FILE="$ZSH_COMPDUMP_DIR/.zcompdump"
 
 autoload -U colors && colors
 setopt PROMPT_SUBST
-source $DOTFILES_HOME/zsh/core/themes/default.zsh-theme
+source "$ZSH_CONFIG_HOME/core/themes/default.zsh-theme"
 
 export CLICOLOR=1
 export LSCOLORS=ExGxBxDxCxAgAdXbAgAcAd
@@ -28,20 +27,20 @@ setopt hist_ignore_space
 setopt hist_verify
 setopt share_history
 
-source $DOTFILES_HOME/zsh/core/core.zsh
+source "$ZSH_CONFIG_HOME/core/core.zsh"
 source "$HOME/.config/zsh/local.zsh" 2>/dev/null || true
 
 for aliases_file in \
-	"$DOTFILES_HOME/zsh/core/aliases/main.zsh" \
-	"$DOTFILES_HOME/zsh/core/aliases/git.zsh" \
-	"$DOTFILES_HOME/zsh/core/aliases/eza.zsh" \
-	"$DOTFILES_HOME/zsh/core/aliases/k8s.zsh" \
-	"$DOTFILES_HOME/zsh/core/aliases/tmux.zsh"
+	"$ZSH_CONFIG_HOME/core/aliases/main.zsh" \
+	"$ZSH_CONFIG_HOME/core/aliases/git.zsh" \
+	"$ZSH_CONFIG_HOME/core/aliases/eza.zsh" \
+	"$ZSH_CONFIG_HOME/core/aliases/k8s.zsh" \
+	"$ZSH_CONFIG_HOME/core/aliases/tmux.zsh"
 do
 	source "$aliases_file"
 done
 
-source $DOTFILES_ZSH_HOME/core/completions.zsh
+source "$ZSH_CONFIG_HOME/core/completions.zsh"
 autoload -Uz compinit
 compinit -d "$ZSH_COMPDUMP_FILE"
 
@@ -62,4 +61,4 @@ eval "$(zoxide init zsh)"
 zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
-source $DOTFILES_HOME/zsh/core/bindkey.zsh
+source "$ZSH_CONFIG_HOME/core/bindkey.zsh"
