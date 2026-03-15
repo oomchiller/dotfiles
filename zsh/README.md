@@ -17,7 +17,8 @@ touch ~/.config/zsh/local.zsh
 
 - local machine-specific config is loaded from `~/.config/zsh/local.zsh` if present
 - completions are cached in `~/.zsh/completions` and `~/.cache/zsh`
-- `k` aliases wrap `kubectl`
+- `k` helpers wrap `kubectl`
+- `k` uses `kubecolor` when available and falls back to `kubectl`
 - `o` aliases wrap OpenShift-specific `oc` commands
 
 ## Aliases
@@ -29,6 +30,11 @@ touch ~/.config/zsh/local.zsh
 - `kl` — `kubectl logs`
 - `kf` — `kubectl logs -f`
 - `ke` — `kubectl exec -it`
+- `ky` — `kubectl get ... -o yaml` with `yq`/`bat` pretty view
+- `kj` — `kubectl get ... -o json` with `jq`/`bat` pretty view
+- `kev` — Kubernetes events sorted by latest timestamp
+- `kimg` — list container images used by matching resources
+- `kst` — `stern` log tailing for multi-pod workloads
 - `kctx` — switch kube context
 - `kns` — set current namespace
 - `kgp` — get pods
@@ -44,6 +50,10 @@ touch ~/.config/zsh/local.zsh
 - `ost` — `oc status`
 - `ow` — `oc whoami`
 - `orsh` — `oc rsh`
+- `oy` — `oc get ... -o yaml` with `yq`/`bat` pretty view
+- `oj` — `oc get ... -o json` with `jq`/`bat` pretty view
+- `oev` — OpenShift events sorted by latest timestamp
+- `oimg` — list container images used by matching resources
 
 ## Key bindings
 
@@ -69,7 +79,12 @@ touch ~/.config/zsh/local.zsh
 - `lazygit`
 - `docker` for docker completion
 - `kubectl` for Kubernetes completion and aliases
+- `kubecolor` for colorized `kubectl` output
 - `podman` for podman completion
 - `oc` for OpenShift completion and aliases
+- `stern` for multi-pod log tailing
+- `yq`
+- `jq`
+- `bat`
 - `zsh-syntax-highlighting`
 - `zsh-autosuggestions`

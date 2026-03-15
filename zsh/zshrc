@@ -29,6 +29,7 @@ setopt hist_verify
 setopt share_history
 
 source $DOTFILES_HOME/zsh/core/core.zsh
+source $DOTFILES_ZSH_HOME/core/k8s.zsh
 source "$HOME/.config/zsh/local.zsh" 2>/dev/null || true
 
 for aliases_file in \
@@ -45,15 +46,17 @@ source $DOTFILES_ZSH_HOME/core/completions.zsh
 autoload -Uz compinit
 compinit -d "$ZSH_COMPDUMP_FILE"
 
-for kubectl_alias in k kg kd ka kdel kl kf ke kcp kctx kcc kns kgp kgd kgds kgs kging kgcm kgsec kgj kgy
+for kubectl_alias in k kg kd ka kdel kl kf ke kcp kctx kcc kns kgp kgd kgds kgs kging kgcm kgsec kgj kgy ky kj kev kimg
 do
 	compdef "$kubectl_alias"=kubectl
 done
 
-for oc_alias in o op ops oroute onew ob ost ow orsh
+for oc_alias in o op ops oroute onew ob ost ow orsh oy oj oev oimg
 do
 	compdef "$oc_alias"=oc
 done
+
+compdef kst=stern
 
 eval "$(zoxide init zsh)"
 
