@@ -2,8 +2,6 @@ return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
 		local lualine = require("lualine")
-
-		-- Colorscheme: Catpuccin Frappe
 		local colors = require("oomchiller.core.utils.colors").get_palette()
 		local icons = require("oomchiller.core.utils.icons")
 
@@ -15,12 +13,12 @@ return {
 				ignore_focus = { "NvimTree" },
 				theme = {
 					normal = {
-						c = { fg = colors.text, bg = colors.mantle },
-						x = { fg = colors.text, bg = colors.mantle },
+						c = { fg = colors.text, bg = colors.dark2 },
+						x = { fg = colors.text, bg = colors.dark2 },
 					},
-					incative = {
-						c = { fg = colors.text, bg = colors.mantle },
-						x = { fg = colors.text, bg = colors.mantle },
+					inactive = {
+						c = { fg = colors.dimmed2, bg = colors.dark2 },
+						x = { fg = colors.dimmed2, bg = colors.dark2 },
 					},
 				},
 			},

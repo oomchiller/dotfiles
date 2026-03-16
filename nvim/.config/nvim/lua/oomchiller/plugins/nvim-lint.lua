@@ -3,22 +3,13 @@ return {
 	config = function()
 		local lint = require("lint")
 		local project = require("oomchiller.core.utils.project")
+		local puppet = require("oomchiller.core.utils.puppet")
 		local puppet_lint = lint.linters["puppet-lint"]
 		local rubocop = lint.linters["rubocop"]
 		local yamllint = lint.linters["yamllint"]
 
 		if puppet_lint then
-			puppet_lint.args = {
-				"--no-80chars-check",
-				"--no-140chars-check",
-				"--no-autoloader_layout-check",
-				"--no-documentation-check",
-				"--no-inherits_across_namespaces-check",
-				"--no-selector_inside_resource-check",
-				"--no-variable_scope-check",
-				"--log-format",
-				"%{path}:%{line}:%{column}:%{kind}:%{check}:%{message}",
-			}
+			puppet_lint.args = puppet.lint_args()
 		end
 
 		if rubocop then

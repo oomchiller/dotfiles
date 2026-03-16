@@ -47,3 +47,14 @@ opt.laststatus = 3
 opt.swapfile = false
 
 autocmd("VimEnter", { command = "clearjumps" })
+
+autocmd("FileType", {
+	pattern = "markdown",
+	callback = function(event)
+		local opt_local = vim.opt_local
+		opt_local.wrap = true
+		opt_local.linebreak = true
+		opt_local.list = false
+		vim.bo[event.buf].textwidth = 0
+	end,
+})

@@ -6,7 +6,10 @@ return {
 	},
 	config = function()
 		local capabilities = require("cmp_nvim_lsp").default_capabilities()
+		local puppet = require("oomchiller.core.utils.puppet")
 		local schemastore = require("schemastore")
+		local mason_path = vim.fn.stdpath("data") .. "/mason"
+		local ignored_puppet_diagnostic_codes = puppet.ignored_diagnostics()
 		local yaml_schemas = schemastore.yaml.schemas()
 		yaml_schemas["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/master-standalone-strict/all.json"] = {
 			"/*.k8s.yaml",
@@ -101,6 +104,24 @@ return {
 		-- Puppet
 		vim.lsp.config("puppet", {
 			capabilities = capabilities,
+			cmd = {
+				mason_path .. "/bin/puppet-languageserver",
+				"--stdio",
+			},
+			cmd_env = {
+				RBENV_VERSION = "3.2.10",
+			},
+			handlers = {
+				["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+					if result and result.diagnostics then
+						result.diagnostics = vim.tbl_filter(function(diagnostic)
+							return not ignored_puppet_diagnostic_codes[diagnostic.code]
+						end, result.diagnostics)
+					end
+
+					return vim.lsp.diagnostic.on_publish_diagnostics(err, result, ctx, config)
+				end,
+			},
 		})
 		vim.lsp.enable("puppet")
 

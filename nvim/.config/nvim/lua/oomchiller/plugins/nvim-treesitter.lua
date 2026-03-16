@@ -13,6 +13,8 @@ return {
 				"vim",
 				"vimdoc",
 				"bash",
+				"markdown",
+				"markdown_inline",
 				"html",
 				"xml",
 				"json",
@@ -26,7 +28,7 @@ return {
 				"ruby",
 				"python",
 			},
-			sync_install = true,
+			sync_install = false,
 			auto_install = false,
 			highlight = {
 				enable = true,
