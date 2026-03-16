@@ -1,7 +1,17 @@
 .DS_Store
-nvim/.nvimlog
-k9s/benchmarks/
-k9s/clusters/
-k9s/screen-dumps/
-k9s/k9s.log
+.nvimlog
 *.log
+*.swp
+*.swo
+*.tmp
+
+# Neovim runtime state
+nvim/.config/nvim/.nvimlog
+nvim/.config/nvim/shada/
+nvim/.config/nvim/session/
+
+# k9s local state and cluster-specific history
+k9s/.config/k9s/benchmarks/
+k9s/.config/k9s/clusters/
+k9s/.config/k9s/screen-dumps/
+k9s/.config/k9s/k9s.log

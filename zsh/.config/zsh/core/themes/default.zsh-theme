@@ -1,14 +1,14 @@
 base_prompt(){
-	echo -n "%{$fg[$1]%}$2%{$reset_color%}"
+	print -rn -- "%F{$1}$2%f"
 }
 
 bold_prompt(){
-	echo -n "%{$fg_bold[$1]%}$2%{$reset_color%}"
+	print -rn -- "%B%F{$1}$2%f%b"
 }
 
 user_prompt(){
 	if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]]; then
-		bold_prompt cyan " %n@%m "
+		bold_prompt "#9cd1bb" " %n@%m "
 	fi
 }
 
@@ -22,24 +22,24 @@ dir_prompt(){
 	local cwd=" %~ "
 	local result=$folder_icon$cwd
 
-	bold_prompt blue $result
+	bold_prompt "#ffd76d" $result
 }
 
 git_prompt(){
 	if [[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]]; then
 
-		local status_color="green"
+		local status_color="#bad761"
 		local branch_icon=" "
 		local branch=$(git branch --show-current)$' '
 		local repository_status
 
 		local git_status=$(git status --porcelain 2> /dev/null)
 		if [[ -n "$git_status" ]]; then
-			status_color="yellow"
+			status_color="#ff9b5e"
 		fi
 
-		local ahead_icon=$(base_prompt cyan '󱦴')
-		local behind_icon=$(base_prompt blue '󱦶')
+		local ahead_icon=$(base_prompt "#9cd1bb" '󱦴')
+		local behind_icon=$(base_prompt "#c39ac9" '󱦶')
 
 		local ahead=$(git log --oneline @{upstream}.. 2>/dev/null)
 		local behind=$(git log --oneline ..@{upstream} 2>/dev/null)
@@ -58,7 +58,7 @@ git_prompt(){
 
 finish_prompt(){
 	NEWLINE=$'\n󱦰 '
-	base_prompt white $NEWLINE
+	base_prompt "#eaf2f1" $NEWLINE
 }
 
 build_prompt() {

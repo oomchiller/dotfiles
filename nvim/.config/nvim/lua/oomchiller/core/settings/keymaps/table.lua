@@ -72,46 +72,50 @@ function K.tree_keymaps(buffer)
 	keymaps_utils.delete_keymaps(deleted_keymaps)
 end
 
-function K.gitsings_keymaps()
+function K.gitsings_keymaps(buffer)
 	local gitsigns = require("gitsigns")
 	local keymaps = {
-		{ mode = "n", lhs = "<leader>hw", rhs = "<cmd>wincmd p | q<CR>" },
-		{ mode = "n", lhs = "<leader>hn", rhs = gitsigns.next_hunk },
-		{ mode = "n", lhs = "<leader>hp", rhs = gitsigns.prev_hunk },
-		{ mode = "n", lhs = "<leader>hd", rhs = gitsigns.diffthis },
+		{ mode = "n", lhs = "<leader>hw", rhs = "<cmd>wincmd p | q<CR>", buffer = buffer },
+		{ mode = "n", lhs = "<leader>hn", rhs = gitsigns.next_hunk, buffer = buffer },
+		{ mode = "n", lhs = "<leader>hp", rhs = gitsigns.prev_hunk, buffer = buffer },
+		{ mode = "n", lhs = "<leader>hd", rhs = gitsigns.diffthis, buffer = buffer },
 		{
 			mode = "n",
 			lhs = "<leader>hD",
 			rhs = function()
 				gitsigns.diffthis("~")
 			end,
+			buffer = buffer,
 		},
-		{ mode = "n", lhs = "<leader>hP", rhs = gitsigns.preview_hunk },
-		{ mode = "n", lhs = "<leader>hS", rhs = gitsigns.stage_buffer },
-		{ mode = "n", lhs = "<leader>hs", rhs = gitsigns.stage_hunk },
+		{ mode = "n", lhs = "<leader>hP", rhs = gitsigns.preview_hunk, buffer = buffer },
+		{ mode = "n", lhs = "<leader>hS", rhs = gitsigns.stage_buffer, buffer = buffer },
+		{ mode = "n", lhs = "<leader>hs", rhs = gitsigns.stage_hunk, buffer = buffer },
 		{
 			mode = "v",
 			lhs = "<leader>hs",
 			rhs = function()
 				gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end,
+			buffer = buffer,
 		},
-		{ mode = "n", lhs = "<leader>hr", rhs = gitsigns.reset_hunk },
-		{ mode = "n", lhs = "<leader>hR", rhs = gitsigns.reset_buffer },
+		{ mode = "n", lhs = "<leader>hr", rhs = gitsigns.reset_hunk, buffer = buffer },
+		{ mode = "n", lhs = "<leader>hR", rhs = gitsigns.reset_buffer, buffer = buffer },
 		{
 			mode = "v",
 			lhs = "<leader>hr",
 			rhs = function()
 				gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end,
+			buffer = buffer,
 		},
-		{ mode = "n", lhs = "<leader>hu", rhs = gitsigns.undo_stage_hunk },
+		{ mode = "n", lhs = "<leader>hu", rhs = gitsigns.undo_stage_hunk, buffer = buffer },
 		{
 			mode = "v",
 			lhs = "<leader>hu",
 			rhs = function()
 				gitsigns.undo_stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
 			end,
+			buffer = buffer,
 		},
 	}
 

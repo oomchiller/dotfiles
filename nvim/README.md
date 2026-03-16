@@ -102,7 +102,7 @@ Leader is `Space`.
 The main plugins in use are:
 
 - [lazy.nvim](https://github.com/folke/lazy.nvim)
-- [catppuccin](https://github.com/catppuccin/nvim)
+- [monokai-pro.nvim](https://github.com/loctvl842/monokai-pro.nvim)
 - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
 - [nvim-web-devicons](https://github.com/nvim-tree/nvim-web-devicons)
 - [lualine](https://github.com/nvim-lualine/lualine.nvim)

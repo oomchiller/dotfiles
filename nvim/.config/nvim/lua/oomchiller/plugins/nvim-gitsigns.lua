@@ -4,7 +4,7 @@ return {
 		local gs = require("gitsigns")
 		gs.setup({
 			on_attach = function(buffer)
-				require("oomchiller.core.settings.keymaps.table").gitsings_keymaps()
+				require("oomchiller.core.settings.keymaps.table").gitsings_keymaps(buffer)
 			end,
 		})
 	end,

@@ -1,20 +1,20 @@
 # -----------------------------------------------------------------------------
-# Monokai skin
+# Monokai Pro Ristretto skin
 # -----------------------------------------------------------------------------
 
 # Styles...
-foreground: &foreground "#ffffff"
+foreground: &foreground "#eaf2f1"
 background: &background "default"
-backgroundOpaque: &backgroundOpaque "#333333"
-magenta: &magenta "#f72972"
-orange: &orange "#e47c20"
-lightBlue: &lightBlue "#c3eff7"
-blue: &blue "#69d9ed"
-darkBlue: &darkBlue "#3174a2"
-green: &green "#a7e24c"
-purple: &purple "#856cc4"
-yellow: &yellow "#e1df8f"
-darkGray: &darkGray "#666666"
+backgroundOpaque: &backgroundOpaque "#1e1f2b"
+magenta: &magenta "#ff657a"
+orange: &orange "#ff9b5e"
+lightBlue: &lightBlue "#9cd1bb"
+blue: &blue "#9cd1bb"
+darkBlue: &darkBlue "#535763"
+green: &green "#bad761"
+purple: &purple "#c39ac9"
+yellow: &yellow "#ffd76d"
+darkGray: &darkGray "#696d77"
 
 # Skin...
 k9s:
