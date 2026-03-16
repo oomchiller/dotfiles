@@ -9,7 +9,7 @@ require("lazy").setup(plugins, {
 			width = 0.6,
 			height = 0.8,
 		},
-		backdrop = 100,
+		backdrop = 0,
 	},
 })
 

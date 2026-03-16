@@ -1,7 +1,10 @@
 font-family = "JetBrainsMono Nerd Font Mono"
-font-size = 17
+font-size = 18
 
 theme = "Monokai Pro Ristretto"
+background-opacity = 0.985
+background-opacity-cells = true
+background-blur = true
 
 command = /bin/zsh
 working-directory = inherit

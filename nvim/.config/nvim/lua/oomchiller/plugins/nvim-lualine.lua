@@ -13,12 +13,12 @@ return {
 				ignore_focus = { "NvimTree" },
 				theme = {
 					normal = {
-						c = { fg = colors.text, bg = colors.dark2 },
-						x = { fg = colors.text, bg = colors.dark2 },
+						c = { fg = colors.text, bg = "NONE" },
+						x = { fg = colors.text, bg = "NONE" },
 					},
 					inactive = {
-						c = { fg = colors.dimmed2, bg = colors.dark2 },
-						x = { fg = colors.dimmed2, bg = colors.dark2 },
+						c = { fg = colors.dimmed2, bg = "NONE" },
+						x = { fg = colors.dimmed2, bg = "NONE" },
 					},
 				},
 			},
