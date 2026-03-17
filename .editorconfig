@@ -11,15 +11,19 @@ max_line_length = 100
 indent_style = tab
 indent_size = 4
 
-[*.{zsh,zsh-theme}]
+[*.zsh]
 indent_style = tab
 indent_size = 4
 
-[zshrc]
+[*.zsh-theme]
 indent_style = tab
 indent_size = 4
 
-[tmux.conf]
+[zsh/.zshrc]
+indent_style = tab
+indent_size = 4
+
+[tmux/.tmux.conf]
 indent_style = tab
 indent_size = 4
 
@@ -28,10 +32,10 @@ indent_style = space
 indent_size = 2
 trim_trailing_whitespace = false
 
-[*.{toml,json}]
+[*.{toml,json,yaml,yml}]
 indent_style = space
 indent_size = 2
 
-[ghostty/config]
+[ghostty/.config/ghostty/config]
 indent_style = space
 indent_size = 2

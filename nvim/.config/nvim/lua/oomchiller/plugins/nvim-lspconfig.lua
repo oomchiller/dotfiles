@@ -9,8 +9,16 @@ return {
 		local puppet = require("oomchiller.core.utils.puppet")
 		local schemastore = require("schemastore")
 		local mason_path = vim.fn.stdpath("data") .. "/mason"
+		local puppet_cmd_env = nil
 		local ignored_puppet_diagnostic_codes = puppet.ignored_diagnostics()
 		local yaml_schemas = schemastore.yaml.schemas()
+
+		if vim.env.RBENV_VERSION and vim.env.RBENV_VERSION ~= "" then
+			puppet_cmd_env = {
+				RBENV_VERSION = vim.env.RBENV_VERSION,
+			}
+		end
+
 		yaml_schemas["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/master-standalone-strict/all.json"] = {
 			"/*.k8s.yaml",
 			"/*.k8s.yml",
@@ -73,12 +81,12 @@ return {
 			settings = {
 				yaml = {
 					keyOrdering = false,
-						schemaStore = {
-							enable = false,
-							url = "",
-						},
-						schemas = yaml_schemas,
+					schemaStore = {
+						enable = false,
+						url = "",
 					},
+					schemas = yaml_schemas,
+				},
 				redhat = {
 					telemetry = {
 						enabled = false,
@@ -108,9 +116,7 @@ return {
 				mason_path .. "/bin/puppet-languageserver",
 				"--stdio",
 			},
-			cmd_env = {
-				RBENV_VERSION = "3.2.10",
-			},
+			cmd_env = puppet_cmd_env,
 			handlers = {
 				["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
 					if result and result.diagnostics then

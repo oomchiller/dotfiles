@@ -4,7 +4,7 @@ k9s:
   refreshRate: 2
   apiServerTimeout: 2m0s
   maxConnRetry: 5
-  readOnly: false
+  readOnly: true
   noExitOnCtrlC: false
   portForwardAddress: localhost
   ui:

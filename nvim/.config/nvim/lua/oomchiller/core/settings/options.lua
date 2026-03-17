@@ -48,6 +48,16 @@ opt.swapfile = false
 
 autocmd("VimEnter", { command = "clearjumps" })
 
+autocmd({ "BufEnter", "BufNewFile" }, {
+	pattern = { "*.lua", "*.zsh", "*.zsh-theme", ".zshrc", ".tmux.conf" },
+	callback = function()
+		local opt_local = vim.opt_local
+		opt_local.expandtab = false
+		opt_local.tabstop = 4
+		opt_local.shiftwidth = 4
+	end,
+})
+
 autocmd("FileType", {
 	pattern = "markdown",
 	callback = function(event)

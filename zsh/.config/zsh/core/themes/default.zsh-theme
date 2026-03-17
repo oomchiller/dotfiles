@@ -26,39 +26,31 @@ dir_prompt(){
 }
 
 git_prompt(){
-	if [[ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = "true" ]]; then
+	local git_status branch status_color branch_icon line
 
-		local status_color="#bad761"
-		local branch_icon=" "
-		local branch=$(git branch --show-current)$' '
-		local repository_status
+	git_status=$(command git status --porcelain=2 --branch --untracked-files=no 2>/dev/null) || return
+	[[ -n "$git_status" ]] || return
 
-		local git_status=$(git status --porcelain 2> /dev/null)
-		if [[ -n "$git_status" ]]; then
+	status_color="#bad761"
+	branch_icon=" "
+
+	for line in ${(f)git_status}; do
+		if [[ "$line" == '# branch.head '* ]]; then
+			branch="${line#\# branch.head }"
+		elif [[ "$line" != '# '* ]]; then
 			status_color="#ff9b5e"
 		fi
+	done
 
-		local ahead_icon=$(base_prompt "#9cd1bb" '󱦴')
-		local behind_icon=$(base_prompt "#c39ac9" '󱦶')
+	[[ "$branch" = "(detached)" ]] && branch="detached"
+	[[ -z "$branch" ]] && return
 
-		local ahead=$(git log --oneline @{upstream}.. 2>/dev/null)
-		local behind=$(git log --oneline ..@{upstream} 2>/dev/null)
-		if [[ -n "$ahead" ]] && [[ -n "$behind" ]]; then
-			repository_status=$behind_icon$ahead_icon
-		elif [[ -n "$ahead" ]]; then
-			repository_status=$ahead_icon
-		elif [[ -n "$behind" ]]; then
-			repository_status=$behind_icon
-		fi
-
-		local result=$branch_icon$branch$repository_status
-		bold_prompt $status_color $result
-	fi
+	bold_prompt "$status_color" "$branch_icon$branch "
 }
 
 finish_prompt(){
-	NEWLINE=$'\n󱦰 '
-	base_prompt "#eaf2f1" $NEWLINE
+	local newline=$'\n󱦰 '
+	base_prompt "#eaf2f1" "$newline"
 }
 
 build_prompt() {

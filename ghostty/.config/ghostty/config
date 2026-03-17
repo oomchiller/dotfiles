@@ -19,7 +19,7 @@ window-height = 32
 
 macos-titlebar-style = tabs
 
-scrollback-limit = 100000000
+scrollback-limit = 200000
 confirm-close-surface = true
 cursor-style = block
 

@@ -46,8 +46,8 @@ touch ~/.config/zsh/local.zsh
 - `ost` — `oc status`
 - `ow` — `oc whoami`
 - `orsh` — `oc rsh`
-- `grh` — `git reset --hard`
-- `gcleani` — `git clean -i`
+- `greset-hard` — `git reset --hard`
+- `gclean-interactive` — `git clean -i`
 
 ## Maintenance
 

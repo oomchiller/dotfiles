@@ -72,7 +72,7 @@ function K.tree_keymaps(buffer)
 	keymaps_utils.delete_keymaps(deleted_keymaps)
 end
 
-function K.gitsings_keymaps(buffer)
+function K.gitsigns_keymaps(buffer)
 	local gitsigns = require("gitsigns")
 	local keymaps = {
 		{ mode = "n", lhs = "<leader>hw", rhs = "<cmd>wincmd p | q<CR>", buffer = buffer },

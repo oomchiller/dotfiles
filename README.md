@@ -42,6 +42,12 @@ Useful stow commands:
 - `stow -D zsh` — remove a package's symlinks
 - `stow -R zsh` — restow after changes
 
+Neovim installs plugins on first start via `lazy.nvim`. Mason-managed external tools are installed explicitly with:
+
+```sh
+nvim --headless "+MasonToolsInstallAll" +qa
+```
+
 ## Minimum dependencies
 
 - `zsh >= 5.9`

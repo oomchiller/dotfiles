@@ -5,7 +5,10 @@
 ```sh
 cd ~/.config/dotfiles
 stow nvim
+nvim --headless "+MasonToolsInstallAll" +qa
 ```
+
+Plugins bootstrap automatically on first launch through `lazy.nvim`. External formatters, linters, and LSP binaries are installed on demand with `:MasonToolsInstallAll` instead of during startup.
 
 ## Clipboard
 

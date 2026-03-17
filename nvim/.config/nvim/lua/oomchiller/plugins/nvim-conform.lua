@@ -40,7 +40,6 @@ return {
 				["yaml.helm-values"] = { "prettier" },
 				markdown = { "prettier" },
 				html = { "prettier" },
-				dockerfile = { "dockerfmt" },
 				sh = { "shfmt" },
 				zsh = { "shfmt" },
 				bash = { "shfmt" },

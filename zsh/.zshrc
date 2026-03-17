@@ -1,4 +1,6 @@
-export EDITOR=v
+export EDITOR="nvim"
+export VISUAL="$EDITOR"
+export GIT_EDITOR="$EDITOR"
 export DEFAULT_USER="$(whoami)"
 
 export ZSH_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
@@ -28,7 +30,6 @@ setopt hist_verify
 setopt share_history
 
 source "$ZSH_CONFIG_HOME/core/core.zsh"
-source "$HOME/.config/zsh/local.zsh" 2>/dev/null || true
 
 for aliases_file in \
 	"$ZSH_CONFIG_HOME/core/aliases/main.zsh" \
@@ -62,3 +63,4 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 source "$ZSH_CONFIG_HOME/core/bindkey.zsh"
+source "$HOME/.config/zsh/local.zsh" 2>/dev/null || true
