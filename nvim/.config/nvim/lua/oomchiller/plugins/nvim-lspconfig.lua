@@ -9,15 +9,9 @@ return {
 		local puppet = require("oomchiller.core.utils.puppet")
 		local schemastore = require("schemastore")
 		local mason_path = vim.fn.stdpath("data") .. "/mason"
-		local puppet_cmd_env = nil
+		local puppet_cmd_env = puppet.lsp_cmd_env()
 		local ignored_puppet_diagnostic_codes = puppet.ignored_diagnostics()
 		local yaml_schemas = schemastore.yaml.schemas()
-
-		if vim.env.RBENV_VERSION and vim.env.RBENV_VERSION ~= "" then
-			puppet_cmd_env = {
-				RBENV_VERSION = vim.env.RBENV_VERSION,
-			}
-		end
 
 		yaml_schemas["https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/master-standalone-strict/all.json"] = {
 			"/*.k8s.yaml",

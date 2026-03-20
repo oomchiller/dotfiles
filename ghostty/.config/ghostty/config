@@ -2,7 +2,7 @@ font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 18
 
 theme = "Monokai Pro Ristretto"
-background-opacity = 0.985
+background-opacity = 0.90
 background-opacity-cells = true
 background-blur = true
 
